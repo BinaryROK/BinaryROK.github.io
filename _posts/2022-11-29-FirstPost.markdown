@@ -12,9 +12,9 @@ categories: jekyll update
   깃허브 블로그 변경사항 업로드 하는법
   git cmd에서 디렉토리를 C:\Users\Administrator\BinaryROK.github.io 로 가서
   {% highlight ruby %}
-  git add --all  
-  git commit -m "내용"
-  git push -u origin main
+  git add --all / 이거는 왜 한번에 안될까?
+  git commit -m "내용" / 무슨역할을하는건지모름
+  git push -u origin main / origin main이 무슨뜻인지모름
 {% endhighlight %}
 그냥 하라는대로 해서 각 명령이 어떤의미를 가지는지는 모른다 공부해봐야겠다.
 
@@ -31,11 +31,12 @@ ls - list directory contents
 파일, 디렉토리 생성 삭제
 {% highlight ruby %}
 mkdir dir1 -디렉토리생성  / mkdir -p dir1/dir2 - 하위디렉토리까지생성
-rmdir dir1 -디렉토리삭제 디렉토리가 비어있어야 삭제가능 / rm -r dir1 - 파일을가지고있는 디렉토리삭제
+rmdir dir1 -디렉토리삭제 디렉토리가 비어있어야 삭제가능 / rm -r dir1 - 파일을가지고있는 디렉토리삭제(-r은 recursive로 디렉토리 전체를 지정)
 touch file1 - 깡통파일생성 혹은 최종수정시간 변경
 cat > file1 - 생성한 파일에 데이터입력가능 혹은 생성된파일 데이터 다시입력 ctrl+c로 종료 / cat file - 파일 데이터 출력
 mv file1 file2 - 파일명 변경하기  / rm file1 dir1(..시 상위디렉토리) - 파일을 디렉토리로 이동 / rm file -파일 삭제
-cp file1 fule2 - file1을 복사해서 file2로만듬 / cp file1 dir1/ - file1을 복사해서 같은이름으로 dir1에저장 /
+cp file1 fule2 - file1을 복사해서 file2로만듬 / cp file1 file2 file3 dir1/ - file1~3을 복사해서 같은이름으로 dir1에저장
+
 {% endhighlight %}
 
 
