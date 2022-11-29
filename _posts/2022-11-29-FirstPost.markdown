@@ -15,7 +15,25 @@ categories: jekyll update
   git add --all  
   git commit -m "내용"
   git push -u origin main
-#=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 그냥 하라는대로 해서 각 명령이 어떤의미를 가지는지는 모른다 공부해봐야겠다.
 
+터미널 - 프로그래밍명령어를 입력하는 소프트웨어
+GUI - Graphical User Intetface 시각적으로 보기 편한 인터페이스
+CLI - Command Line Interface 신속하고 편리하기에 CLI에 익숙해져야한다
+WLS - Window Subsystem for Linux 윈도우에서 리눅스환경으로 CLI사용하기위한 것
+pwd - print workign directory 현재 디렉토리 위치
+cd - change directory 디렉토리 위치변경 (cd 경로 / cd .. / cd bin)
+ls - list directory contents
+
+디렉토리, 파일명 입력할때 한두문자 입력하고 탭누르면 자동완성됨
+
+{% highlight ruby %}
+mkdir 디렉토리이름 -디렉토리생성  / mkdir -p 디렉토리이름1/디렉토리이름2 - 하위디렉토리까지생성
+rmdir 디렉토리이름 -디렉토리삭제 디렉토리가 비어있어야 삭제가능 / rm -r 디렉토리 - 파일을가지고있는 디렉토리삭제
+{% endhighlight %}
+
+
+{% highlight ruby %}
+
+{% endhighlight %}
