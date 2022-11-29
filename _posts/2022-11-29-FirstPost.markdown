@@ -30,11 +30,12 @@ ls - list directory contents
 
 파일, 디렉토리 생성 삭제
 {% highlight ruby %}
-mkdir 디렉토리이름 -디렉토리생성  / mkdir -p 디렉토리이름1/디렉토리이름2 - 하위디렉토리까지생성
-rmdir 디렉토리이름 -디렉토리삭제 디렉토리가 비어있어야 삭제가능 / rm -r 디렉토리 - 파일을가지고있는 디렉토리삭제
-touch 파일명 - 깡통파일생성 혹은 최종수정시간 변경
-cat > 파일명 - 생성한 파일에 데이터입력가능 혹은 생성된파일 데이터 다시입력 ctrl+c로 종료 / cat 파일명 - 파일 데이터 출력
-mv 기존파일명 변경파일명 - 파일명 변경하기  / rm 파일명 디렉토리명(..시 상위디렉토리) - 파일을 디렉토리로 이동 / rm 파일명 -파일 삭제 
+mkdir dir1 -디렉토리생성  / mkdir -p dir1/dir2 - 하위디렉토리까지생성
+rmdir dir1 -디렉토리삭제 디렉토리가 비어있어야 삭제가능 / rm -r dir1 - 파일을가지고있는 디렉토리삭제
+touch file1 - 깡통파일생성 혹은 최종수정시간 변경
+cat > file1 - 생성한 파일에 데이터입력가능 혹은 생성된파일 데이터 다시입력 ctrl+c로 종료 / cat file - 파일 데이터 출력
+mv file1 file2 - 파일명 변경하기  / rm file1 dir1(..시 상위디렉토리) - 파일을 디렉토리로 이동 / rm file -파일 삭제
+cp file1 fule2 - file1을 복사해서 file2로만듬 / cp file1 dir1/ - file1을 복사해서 같은이름으로 dir1에저장 /
 {% endhighlight %}
 
 
