@@ -28,16 +28,26 @@ ls - list directory contents
 
 디렉토리, 파일명 입력할때 한두문자 입력하고 탭누르면 자동완성됨
 
-파일, 디렉토리 생성 삭제
+파일, 디렉토리 생성 삭제 
 {% highlight ruby %}
 mkdir dir1 -디렉토리생성  / mkdir -p dir1/dir2 - 하위디렉토리까지생성
-rmdir dir1 -디렉토리삭제 디렉토리가 비어있어야 삭제가능 / rm -r dir1 - 파일을가지고있는 디렉토리삭제(-r은 recursive로 디렉토리 전체를 지정)
+rmdir dir1 -디렉토리삭제 디렉토리가 비어있어야 삭제가능
+rm -r dir1 - 파일을가지고있는 디렉토리삭제(-r은 recursive로 디렉토리 전체를 지정)
 touch file1 - 깡통파일생성 혹은 최종수정시간 변경
-cat > file1 - 생성한 파일에 데이터입력가능 혹은 생성된파일 데이터 다시입력 ctrl+c로 종료 / cat file - 파일 데이터 출력
-mv file1 file2 - 파일명 변경하기  / rm file1 dir1(..시 상위디렉토리) - 파일을 디렉토리로 이동 / rm file -파일 삭제
-cp file1 fule2 - file1을 복사해서 file2로만듬 / cp file1 file2 file3 dir1/ - file1~3을 복사해서 같은이름으로 dir1에저장
+cat > file1 - 생성한 파일에 데이터입력가능 혹은 생성된파일 데이터 다시입력 ctrl+c로 종료
+cat file - 파일 데이터 출력 / mv file1 file2 - 파일명 변경하기
+rm file1 dir1(..시 상위디렉토리) - 파일을 디렉토리로 이동 / rm file -파일 삭제
 
 {% endhighlight %}
+
+파일, 디렉토리 이동 복사 이름변경
+{% highlight ruby %}
+mv dir1/file1 dir2/ - dir1에있는 file1을 dir2로 이동 (working directory기준)
+cp file1 fule2 - file1을 복사해서 file2로만듬
+cp file1 file2 file3 dir1/ - file1~3을 복사해서 같은이름으로 dir1에저장
+
+{% endhighlight %}
+
 
 
 {% highlight ruby %}
