@@ -15,7 +15,8 @@ sudo apt-get install dnsmasq
 
 위 두개의 패키지를 이용하여 AP 설정을 한 후 데스크탑에서 해당 wifi에 연결을 한다.<br/>
 후에 데스크탑에서 VNC viewer에 라즈베리파이의 ip를 입력하여 연결하면 된다. 여기서 The connection was refused by the computer라고 뜰수도있는데.<br/>
-이런경우에는 라즈베리파이 configuration에서 VNC enable로 설정하면 해결된다.
+이런경우에는 라즈베리파이 configuration에서 VNC enable로 설정하면 해결된다. 이때 라즈베리파이에 인터넷연결이 안되어있으면 VNC연결이 안된다. 이것때문에 많이 실패했었다.<br/>
+원래는 라즈베리파이4에 와이파이모듈이 내장되어있는데 내가 설정을 잘못건들여서 지금 와이파이가 안된다. 정 안되면 포멧을해야할것같다.<br/>
 
 
 
