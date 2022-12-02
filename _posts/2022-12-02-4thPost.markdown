@@ -3,6 +3,7 @@ layout: post
 title:  "네번째"
 date:   2022-12-02 09:48:00 +0900
 categories: jekyll update
+tag : 업무
 ---
 네번째 출근
 어제는 라즈베리파이 gpio를 통해 이것저것 해보려고 시도해봤다.<br/>
