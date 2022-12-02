@@ -19,6 +19,7 @@ import RPi.GPIO as GPIO  / GPIO 함수 호출
 후에 해야할것은 Numbering system을 설정하여 pin번호를 정하는것이다.<br/>
 여기는 두가지로 구분할수있는데 첫번째는 GPIO.BOARD와 GPIO.BCM이있다.<br/>
 BOARD는 물리적으로 40개의 핀을 순서대로 나열한것이고 BCN은 control, power, ground를 구분한것이다. 보통BCM으로한다.<br/>
+
 {% highlight ruby %}
 GPIO.setmode(GPIO.BCM) / 넘버링을 BCM으로 하겠다.
 LED = 18
@@ -28,6 +29,35 @@ GPIO.output(LED, GPIO.HIGH or LOW) / 해당 핀의 아웃풋을 1 또는 0으로
 except KeyBoardInterrupt:
     pass     / ctrl c 하면 종료
 GPIO.cleanup() / 해당 코드를 안넣으면 이후 사용시 핀이 사용중이라 사용못한다.
+
+{% endhighlight %}
+
+다음은 GPIO LED제어 코드이다.
+{% highlight ruby %}
+import RPi.GPIO as GPIO    / RPi.GPIO 패키지를 가져오고 쓰기 편하게 GPIO로 변경한다.
+import time                 / 딜레이를 위한 시간 패키지
+
+GPIO.setmode(GPIO.BCM)      / GPIO 핀모드를 BCM으로 설정
+LED=17                       / LED 가 들어가는 핀번호
+GPIO.setup(LED, GPIO.OUT, initial=GPIO.HIGH)  / LED(17번)을 아웃풋으로 설정하고 초기값은 1로 설정
+
+val= GPIO.input(LED)  / 변수 val 도입 이는 LED핀의 현재상태를 의미함 True면1 False면0 
+print(val)            / True면 1이출력되고 False면 0이출력된다.
+
+try:     /try, except문 except에 있는 조건이 나오지않는한 try에있는 문장 실행
+    while True:   / while 조건문에 True를 넣으면 항상 참이기에 하위 문장을 계속반복(무한루프)
+            GPIO.output(LED, GPIO.HIGH) / LED의 아웃풋을 HIGH로 설정하여 점등
+            time.sleep(2)
+
+            GPIO.output(LED, GPIO.LOW)  /   위와 동일, 소등
+            time.sleep(2)
+
+except KeyboardInterrupt:        / 키보드인터럽트(ctrl c)가 실행될 경우 pass를 한다. 
+    pass
+
+GPIO.cleanup()               / gpio에 해당된 핀들을 초기화한다. 해당문장이 없을경우 다음번실행시 해당 핀번호가 사용중이라는 경고문이 뜬다.
+
+
 
 {% endhighlight %}
 
