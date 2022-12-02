@@ -32,31 +32,72 @@ GPIO.cleanup() / 해당 코드를 안넣으면 이후 사용시 핀이 사용중
 
 {% endhighlight %}
 
-다음은 GPIO LED제어 코드이다.
+다음은 2초에 한번씩 켜지고꺼지는 GPIO LED제어 코드이다
 {% highlight ruby %}
-import RPi.GPIO as GPIO    / RPi.GPIO 패키지를 가져오고 쓰기 편하게 GPIO로 변경한다.
-import time                 / 딜레이를 위한 시간 패키지
+import RPi.GPIO as GPIO
+#RPi.GPIO 패키지를 가져오고 쓰기 편하게 GPIO로 변경한다.
+import time
+#딜레이를 위한 시간 패키지
 
-GPIO.setmode(GPIO.BCM)      / GPIO 핀모드를 BCM으로 설정
-LED=17                       / LED 가 들어가는 핀번호
-GPIO.setup(LED, GPIO.OUT, initial=GPIO.HIGH)  / LED(17번)을 아웃풋으로 설정하고 초기값은 1로 설정
+GPIO.setmode(GPIO.BCM)
+#GPIO 핀모드를 BCM으로 설정
+LED=17
+#LED 가 들어가는 핀번호
+GPIO.setup(LED, GPIO.OUT, initial=GPIO.HIGH)
+#LED(17번)을 아웃풋으로 설정하고 초기값은 1로 설정
 
-val= GPIO.input(LED)  / 변수 val 도입 이는 LED핀의 현재상태를 의미함 True면1 False면0 
-print(val)            / True면 1이출력되고 False면 0이출력된다.
+val= GPIO.input(LED)
+#변수 val 도입 이는 LED핀의 현재상태를 의미함 True면1 False면0 
+print(val)
+#True면 1이출력되고 False면 0이출력된다.
 
-try:     /try, except문 except에 있는 조건이 나오지않는한 try에있는 문장 실행
-    while True:   / while 조건문에 True를 넣으면 항상 참이기에 하위 문장을 계속반복(무한루프)
-            GPIO.output(LED, GPIO.HIGH) / LED의 아웃풋을 HIGH로 설정하여 점등
+try:
+#try, except문 except에 있는 조건이 나오지않는한 try에있는 문장 실행
+    while True:
+    #while 조건문에 True를 넣으면 항상 참이기에 하위 문장을 계속반복(무한루프)
+            GPIO.output(LED, GPIO.HIGH)
+            #LED의 아웃풋을 HIGH로 설정하여 점등
             time.sleep(2)
 
-            GPIO.output(LED, GPIO.LOW)  /   위와 동일, 소등
+            GPIO.output(LED, GPIO.LOW)
+            #위와 동일, 소등
             time.sleep(2)
 
-except KeyboardInterrupt:        / 키보드인터럽트(ctrl c)가 실행될 경우 pass를 한다. 
+except KeyboardInterrupt: 
     pass
+    #키보드인터럽트(ctrl c)가 실행될 경우 pass를 한다.
+GPIO.cleanup()
+#gpio에 해당된 핀들을 초기화한다. 해당문장이 없을경우 다음번실행시 해당 핀번호가 사용중이라는 경고문이 뜬다.
+{% endhighlight %}
 
-GPIO.cleanup()               / gpio에 해당된 핀들을 초기화한다. 해당문장이 없을경우 다음번실행시 해당 핀번호가 사용중이라는 경고문이 뜬다.
+이번에는 인풋에 버튼을추가하여 버튼을 누르면 점등이 되고 손때면 소등이 되게 하였다.
+{% highlight ruby %}
+import RPi.GPIO as GPIO
+import time
 
+GPIO.setmode(GPIO.BCM)
+but=27
+led=17
+GPIO.setup(but, GPIO.IN,pull_up_down =GPIO.PUD_DOWN)
+# 버튼을 인풋으로 설정, 가만히있으면 0 위에서 아래로 누르면 1
+GPIO.setup(led, GPIO.OUT,initial = GPIO.LOW)
+val=GPIO.input(but)
+
+try:
+	while True:
+		GPIO.output(led,GPIO.LOW)
+		print("off")
+		while GPIO.input(but)==1:
+        #인풋이 1인경우 점등이되며 on 이출력된다.
+			GPIO.output(led,GPIO.HIGH)
+			print("on")
+			time.sleep(0.5)
+
+except KeyboardInterrupt:
+	pass
+
+
+GPIO.cleanup()
 
 
 {% endhighlight %}
