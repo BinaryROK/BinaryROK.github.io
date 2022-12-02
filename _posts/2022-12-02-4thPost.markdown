@@ -8,7 +8,28 @@ categories: jekyll update
 어제는 라즈베리파이 gpio를 통해 이것저것 해보려고 시도해봤다.<br/>
 일단 라즈베리파이4에 gpio확장보드를 달고 기본적인 스위치 led 세븐세그먼트 제어를 하려고했는데 하루종일 못했다.<br/>
 왜냐, 확장보드를 달았는데 제대로안달고 걸쳐놓고 계속 실행이 안되서 코드만 계속 만지작거리다가 깨달았다.<br/>
-오늘은 어제못한 제어를 다시해봐야겠다.
+오늘은 어제못한 제어를 다시해봐야겠다.<br/>
+그전에 gpio에대해서 다시 공부를 해보자<br/>
+
+일단 gpio를 사용하려면 RPi.GPIO라는 패키지가 필요하다.
+{% highlight ruby %}
+sudo apt-get install RPi.GPIO /GPIO 패키지 인스톨
+import RPi.GPIO as GPIO  / GPIO 함수 호출
+{% endhighlight %}
+후에 해야할것은 Numbering system을 설정하여 pin번호를 정하는것이다.<br/>
+여기는 두가지로 구분할수있는데 첫번째는 GPIO.BOARD와 GPIO.BCM이있다.<br/>
+BOARD는 물리적으로 40개의 핀을 순서대로 나열한것이고 BCN은 control, power, ground를 구분한것이다. 보통BCM으로한다.<br/>
+{% highlight ruby %}
+GPIO.setmode(GPIO.BCM) / 넘버링을 BCM으로 하겠다.
+LED = 18
+GPIO.setup(18(핀번호), GPIO.OUT, initail=GPIO.HIGH or LOW) / 핀에 아웃풋 지정
+GPIO.output(LED, GPIO.HIGH or LOW) / 해당 핀의 아웃풋을 1 또는 0으로 변경
+
+except KeyBoardInterrupt:
+    pass     / ctrl c 하면 종료
+GPIO.cleanup() / 해당 코드를 안넣으면 이후 사용시 핀이 사용중이라 사용못한다.
+
+{% endhighlight %}
 
 
 
