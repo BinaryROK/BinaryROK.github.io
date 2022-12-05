@@ -15,12 +15,15 @@ tag : 업무
 c소스코드로 Hello World를 실행해보자
 {% highlight ruby %}
 일단 터미널에
-nano qwer.c 파일을 만들어 그 안에
+nano file1.c 파일을 만들어 그 안에
 #include <stdio.h> - stdio헤더파일 가져오기
 void main()  - 함수선언,void는 return이 필요없는 자료형이다. 
   {
     printf("HelloWorld\n"); -printf를 사용하려면 stdio.h가 필요하다.
   }
+  를 작성하고 저장한다.
+  후에 터미널에서 gcc -o file2 file1.c 로 실행파일file2를만든다. -여기서 file1,2는 임의의 파일명이다.
+  실행파일은 ./file2 로 실행이가능하다.
 
 
 
