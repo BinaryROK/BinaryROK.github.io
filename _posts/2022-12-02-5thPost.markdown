@@ -5,7 +5,11 @@ date:   2022-12-05 09:00:01 +0900
 categories: jekyll update
 tag : 업무
 ---
-
+오늘은 다섯번째 출근날이다. 저번주 금요일 퇴근전에  Github Desktop을 다운로드 받았다.<br/>
+원래 git cmd에서 했던 commit과 push를 GithubDesktop에서 편하게 할수가 있다. <br/>
+그냥 PC에있는 내 깃허브 레포지토리로 들어가 파일을 추가,제거,수정하고 commit to main, push origin을 클릭만하면 자동으로 적용이 된다.<br/>
+앞으로 더욱 편하게 포스트를 할수있겠다.<br/>
+오늘 배울것은 라즈베리파이 gcc 이다. 아직은 아는게없으니 배우고나서 추가해야겠다.
 
 
 
