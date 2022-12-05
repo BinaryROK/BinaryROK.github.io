@@ -35,7 +35,7 @@ rm -r dir1 - 파일을가지고있는 디렉토리삭제(-r은 recursive로 디�
 touch file1 - 깡통파일생성 혹은 최종수정시간 변경
 cat > file1 - 생성한 파일에 데이터입력가능 혹은 생성된파일 데이터 다시입력 ctrl+c로 종료
 cat file - 파일 데이터 출력 / mv file1 file2 - 파일명 변경하기
-rm file1 dir1(..시 상위디렉토리) - 파일을 디렉토리로 이동 / rm file -파일 삭제
+rm file -파일 삭제
 
 {% endhighlight %}
 
