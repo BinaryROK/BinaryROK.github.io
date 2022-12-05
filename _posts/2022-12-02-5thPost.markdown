@@ -10,8 +10,21 @@ tag : 업무
 그냥 PC에있는 내 깃허브 레포지토리로 들어가 파일을 추가,제거,수정하고 commit to main, push origin을 클릭만하면 자동으로 적용이 된다.<br/>
 앞으로 더욱 편하게 포스트를 할수있겠다.<br/>
 오늘 배울것은 라즈베리파이 gcc 이다. 아직은 아는게없으니 배우고나서 추가해야겠다.<br/>
-간단한 아웃풋을 내는것이 일차적 목표이다.
+일단 c소스코드로 간단한 아웃풋을 내는것이 일차적 목표이다.<br/><br/>
+일단 gcc는 리눅스에서 c소스파일을 컴파일할때 사용한다 여기서 컴파일이란 작성한 소스코드를 기계어로 번역해주는 작업을 말한다<br/>
+c소스코드로 Hello World를 실행해보자
+{% highlight ruby %}
+일단 터미널에
+nano qwer.c 파일을 만들어 그 안에
+#include <stdio.h> - stdio헤더파일 가져오기
+void main()  - 함수선언,void는 return이 필요없는 자료형이다. 
+  {
+    printf("HelloWorld\n"); -printf를 사용하려면 stdio.h가 필요하다.
+  }
 
+
+
+{% endhighlight %}
 
 
 
