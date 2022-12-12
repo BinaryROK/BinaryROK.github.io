@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "여섯번째"
+date:   2022-12-12 09:00:01 +0900
+categories: jekyll update
+tag : 업무
+---
+여섯번째날이다. 저번주엔 여행을다녀와서 좀 쉬었으니 그전주에 했던것들을 다시 봐야겠다.<br/>
+일단 저번주 월요일에 C
+
+
+
+
+
+
+{% highlight ruby %}
+
+
+
+{% endhighlight %}
