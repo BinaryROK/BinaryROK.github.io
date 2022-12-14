@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "여섯번째"
+title:  "C 포인터, 비트연산자"
 date:   2022-12-14 09:00:01 +0900
 categories: jekyll update
 tag : 업무
