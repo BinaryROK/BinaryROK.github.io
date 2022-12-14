@@ -230,20 +230,91 @@ add_j=0xdbf778
 여기서 포인터사용의 이점을 볼수있다. 포인터를사용한 testptr함수의 경우 기존main함수에 할당된 메모리만 사용하는데<br/>
 test함수는 함수내의 변수i에게 메모리를 새로 할당해준다 이는 메모리사용량을 늘리며 위 예시에서는 별 차이가 없지만<br/>
 만약 포인터로 지정한 변수에게 할당된 메모리가 높다면 그거와 같은양의 메모리를 할당해줘야하므로 메모리낭비가 심해진다<br/>
-따라서 이러한경우 포인터를 사용해준다면 메모리사용량을 아낄수있게된다.
+따라서 이러한경우 포인터를 사용해준다면 메모리사용량을 아낄수있게된다.<br/><br/>
+이제 포인터에대해 알게되었으니 SetBit(int *num,int n)에대해 알아보자<br/>
+이는 변수num의 n번비트를 1로 고정해주는 함수이다.(비트는0번부터31번까지이니 햇갈리지말자)
+{% highlight ruby %}
+void SetBit(int* num, int n) 
+{
+	int vv = 1 << n; //1번비트를 1로 고정하겠다.
+	*num |= vv;// *num= num|vv 과 동일하다.
+	//PrintBit(*num); // for debugging
+}
+int main()
+{
+	int num = 0xFFF0;
+	int n = 1;
+	
+	PrintBit(num);//위에있는 PrintBit함수를 호출한것이다.
+	printf("SetBitPTR\n");
+	SetBit(&num, n);
+	PrintBit(num);
+}
+{% endhighlight %}
+위 코드의 출력은 다음과같다.
+{% highlight ruby %}
+0000 0000 0000 0000 1111 1111 1111 0000 // 1번비트값은 0
+SetBitPTR
+0000 0000 0000 0000 1111 1111 1111 0010 // 1번비트값이 1이되었다.
+{% endhighlight %}
+위 함수에서 핵심이되는 알고리즘은 *num|=vv 라고할수있다.<br/>
+이는 *num= num|vv이며 위 예시로 n=1이므로 vv=0x02로 1번비트를제외하고 전부 0이다.<br/>
+따라서 vv와 *num의 or연산을하게되면 1번비트를 제외하고는 *num의 비트값을그대로 가져가고 num의 1번비트는 0이든1이든 1이된다.</br>
+따라서 *num의1번비트가 Set되었다고 볼수있다.<br/><br/>
+
+마지막으로 ReSetBit에해 알아보자<br/>
+ReSetBit(int *num, n)은 *num의 n번비트를 0으로설정하는 함수다. 다음 함수를 보자
+{% highlight ruby %}
+void ReSetBit(int* num, int n)
+{
+	int vv = 1 << n;
+	*num ^= vv;		
+	if ((*num&vv)!= 0)//*num의 n번비트가 1이라는뜻
+	{
+		*num ^= vv;
+	}
+	PrintBit(*num);	
+}					
+int main()
+{
+	int num1 = 0xFFF0;
+	int num2 = 0xFFFF;
+	PrintBit(num1);
+	PrintBit(num2);
+	int n = 1;
+	ReSetBit(&num1, n);
+	ReSetBit(&num2, n);
+}
+{% endhighlight %}
+위 코드의 출력은 다음과같다.
+{% highlight ruby %}
+0000 0000 0000 0000 1111 1111 1111 0000//num1
+0000 0000 0000 0000 1111 1111 1111 1111//num2
+0000 0000 0000 0000 1111 1111 1111 0000//ReSet num1 0->0
+0000 0000 0000 0000 1111 1111 1111 1101//ReSet num2 1->0
+{% endhighlight %}
+num1의 1번비트 0, num2의 1번비트1 모두 0으로 출력된다.<br/>
+ReSetBit알고리즘은 SetBit보다 조금더 복잡한데 주요알고리즘은 다음내용이다<br/>
+{% highlight ruby %}
+	int vv = 1 << n;
+	*num ^= vv;		//1번
+	if ((*num&vv)!= 0)//*num의 n번비트가 1이라는뜻//2번
+	{
+		*num ^= vv;
+	}
+{% endhighlight %}
+위 코드의 1번문장을 보면 주어진 변수의값 *num과 n번비트만 1인 vv를 xor연산을한다.<br/>
+이경우 n번비트를 제외한 모든 비트는 *num을따라가고 n번비트는 반전이된다.<br/>
+이후 2번 조건문의내용은 *num의 n번비트가 1이면 조건을 만족한다.<br/>
+조건문 안에서의 *num ^= vv;는 1번식과 마찬가지로 n번비트는 반전 n번제외비트는 *num을 따라간다.<br/>
+따라서 n번비트가 원래 0인경우 n번비트를 두번 반전하여 그대로 0이되게하고 n번비트가1인경우 반전을 한번만하여 0이되게한다.
 
 
 
-{% highlight ruby %}
-{% endhighlight %}
-{% highlight ruby %}
-{% endhighlight %}
-{% highlight ruby %}
-{% endhighlight %}
-{% highlight ruby %}
-{% endhighlight %}
-{% highlight ruby %}
-{% endhighlight %}
+
+
+
+
 {% highlight ruby %}
 {% endhighlight %}
 {% highlight ruby %}
