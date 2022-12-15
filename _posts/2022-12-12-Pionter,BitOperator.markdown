@@ -302,21 +302,31 @@ ReSetBit알고리즘은 SetBit보다 조금더 복잡한데 주요알고리즘�
 	{
 		*num ^= vv;
 	}
+
 {% endhighlight %}
 위 코드의 1번문장을 보면 주어진 변수의값 *num과 n번비트만 1인 vv를 xor연산을한다.<br/>
 이경우 n번비트를 제외한 모든 비트는 *num을따라가고 n번비트는 반전이된다.<br/>
 이후 2번 조건문의내용은 *num의 n번비트가 1이면 조건을 만족한다.<br/>
 조건문 안에서의 *num ^= vv;는 1번식과 마찬가지로 n번비트는 반전 n번제외비트는 *num을 따라간다.<br/>
 따라서 n번비트가 원래 0인경우 n번비트를 두번 반전하여 그대로 0이되게하고 n번비트가1인경우 반전을 한번만하여 0이되게한다.
-
-
-
-
-
-
-
+<br/><br/>다른 알고리즘으로 ReSetBit함수를 구현할수있다.
 {% highlight ruby %}
+void ReSetBit(int* num, int n)
+{
+	int vv = (1 << n); vv ^= 0xFFFFFFF; *num &= vv;
+	//*num &= ((1 << n) ^0xFFFFFFFF); //윗줄을 한줄로 줄인것이다.
+	PrintBit(*num);
+}
 {% endhighlight %}
+두 함수의 차이는 조건문의 유무인데 조건문이 있는경우 연산속도가 느려져 위처럼 구현하는것이 더 유리하다.<br/>
+한두번호출할때는 차이가 없지만 호출횟수가 많아질수록 격차가 벌어질것이다.
+
+
+
+
+
+
+
 {% highlight ruby %}
 {% endhighlight %}
 {% highlight ruby %}
