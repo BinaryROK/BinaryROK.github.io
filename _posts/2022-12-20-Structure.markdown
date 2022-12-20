@@ -37,11 +37,16 @@ int main()
 David의 나이는 17 키는 170
 Lucy의 나이는 22 키는 175
 {% endhighlight %}
-C++에서는 문자열 입출력을 <string>을 통해 간편하게 할수있다.<br/>
+
+<br/>C++에서는 문자열 입출력을 <string>을 통해 간편하게 할수있다.<br/>
 {% highlight ruby %}
+using namespace std;
+//std:: 을 해당 소스파일에서 생략하겠다.
+using namespace std;
+
 struct status
 {
-	std::string name;//std::string 은 문자열자료형 name을 위한것
+	string name;//string 은 문자열 name을 위한것
 	int age;
 	int ht;
 };
@@ -49,14 +54,13 @@ struct status
 int main()
 {
 	status Binary;// 구조체 Binary 선언
-	std::cout << "Enter your full name\n";
-	std::getline(std::cin, Binary.name);//문자열 사이에 띄어쓰기까지 입력받는 std::getline 
-	std::cout << "Enter your age\n";
-	std::cin >> Binary.age;
-	std::cout << "Enter your height\n";
-	std::cin >> Binary.ht;//숫자만 입력받을때는 std::cin >>
-	std::cout << "Your name is" << Binary.name << "\nyour age is " << Binary.age << "\nyour height is " << Binary.ht;
-}
+	cout << "Enter your full name\n";
+	getline(cin, Binary.name);//문자열 사이에 띄어쓰기까지 입력받는 getline 
+	cout << "Enter your age\n";
+	cin >> Binary.age;
+	cout << "Enter your height\n";
+	cin >> Binary.ht;//숫자만 입력받을때는 cin >>
+	cout << "Your name is " << Binary.name << "\nyour age is " << Binary.age << "\nyour height is " << Binary.ht;
 {% endhighlight %}
 위 코드의 출력은 다음과 같다.
 {% highlight ruby %}
@@ -66,11 +70,10 @@ Enter your age
 24
 Enter your height
 177
-Your name is이진수
+Your name is 이진수
 your age is 24
 your height is 177
 {% endhighlight %}
-
 
 
 {% highlight ruby %}
