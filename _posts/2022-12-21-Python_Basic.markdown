@@ -140,9 +140,12 @@ try, except 조건문<br/>
  하더라도
  print(fruits) # {'apple','orange'}로 출력된다.
  {% endhighlight %}
-
+ <br/>format 함수는 소숫점자리수를 조정할때 필요하다.<br/>
+ 문제풀이할때 출력값을 문제에서 제시하는형태와 동일하게 해야 인정이되기때문에 알아둬야한다.<br/>
  {% highlight ruby %}
- 
+ a = 3.555555
+ b = 40 두 변수 모두 소수3째까지 반올림하여 출력하고싶다면
+ printf("{:.3f} 와 {:.3f}".format(a,b)) # 3.556 와 40.000
  {% endhighlight %}
 
  {% highlight ruby %}
