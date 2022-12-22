@@ -124,13 +124,21 @@ hello world my name is binary //2)
 helloworldmynameisbinary ///3)
 hello world my name is binary //4)
 {% endhighlight %}
-
+try, except 조건문<br/>
+기본 틀은 다음과같다.
 {% highlight ruby %}
- 
+ try:
+     #실행할 문장
+ except:
+     #오류시 실행할 문장
  {% endhighlight %}
-
+ 기본적으로는 실행할 문장을 실행한다.
+ <br/>허나 실행중 오류(범위오류 인덱스오류 등)이 발생할 경우 except문장을 실행한다.
+<br/><br/> set - 집합개념이다. 중복된값을 넣어도 한개만 들어감
  {% highlight ruby %}
- 
+ fruits - {'orange', 'apple', 'orange'}
+ 하더라도
+ print(fruits) # {'apple','orange'}로 출력된다.
  {% endhighlight %}
 
  {% highlight ruby %}
