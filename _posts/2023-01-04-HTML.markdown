@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "HTML"
+date:   2022-12-26 09:00:01 +0900
+categories: jekyll update
+tag : WebDevelopment
+---
+  HTML에 대해 공부해보자<br/>
+  웹페이지의 기본구조는 다음과같다.
+ {% highlight ruby %}
+ <!DOCTYPE html>
+<html lang="ko">//html문서의 시작, 언어를 한글로하겠다.
+    <head>
+        <meta charset="UTF-8">//메타데이터,UTF-8이 구현가능한문자가 가장많아 보편적으로쓰인다.
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">//모든 브라우저에서 최신렌더링엔진을 사용하게함, 쓰면좋다.
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">기기화면너비에 맞춰준다.
+        <title>웹개발</title>//제목
+    </head>
+    <body>
+        <p>웹페이지 내용</p>
+    </body>
+</html>
+ {% endhighlight %}
+ 텍스트 테그<br/>
+ <hn></hn> - h1~h6 존재하며 숫자가 낮을수록 중요도가 높다. <br/> 해당 테그로 작성된 텍스트는 검색엔진에서 키워드로 작동하므로 SEO(search engine optimization)을위해 잘써야한다.<br/> hn테그는1부터 순차적으로 사용해한다.
+ <p></p>parapraph테그로 본문텍스트를 작성한다. 가장많이쓰임<br/>
+ <br>줄바꿈테그<br/>
+ <blickquote cite="URL"><p>인용문</p></blockquote>타 사이트에서 문단단위의 텍스트를 인용할때 사용된다.출처를 포함해야함
+ <q cite="URL>짧은인용문</q> q테그의 인용문은 ""로 묶인다. p테그가 없어도 된다.<br/>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% highlight ruby %}
+ 
+ {% endhighlight %}
+
+ {% highlight ruby %}
+ 
+ {% endhighlight %}
+
+ {% highlight ruby %}
+ 
+ {% endhighlight %}
